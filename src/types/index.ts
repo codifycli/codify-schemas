@@ -121,6 +121,7 @@ export interface GetResourceInfoResponseData {
     requiredParameters: string[] | null;
   },
   operatingSystems?: OS[];
+  linuxDistros?: LinuxDistro[];
   importAndDestroy?: {
     requiredParameters: string[] | null;
     preventImport?: boolean;
@@ -179,6 +180,7 @@ export interface ResourceDefinition {
   type: string;
   dependencies: string[];
   operatingSystems?: OS[];
+  linuxDistros?: LinuxDistro[];
   sensitiveParameters?: string[];
 }
 
@@ -227,4 +229,26 @@ export enum OS {
   Darwin = 'Darwin',
   Linux = 'Linux',
   Windows = 'Windows_NT',
+}
+
+export enum LinuxDistro {
+  DEBIAN_BASED = 'debian-based',
+  RPM_BASED = 'rpm-based',
+  ARCH = 'arch',
+  CENTOS = 'centos',
+  DEBIAN = 'debian',
+  FEDORA = 'fedora',
+  RHEL = 'rhel',
+  UBUNTU = 'ubuntu',
+  ALPINE = 'alpine',
+  AMAZON_LINUX = 'amzn',
+  OPENSUSE = 'opensuse',
+  SUSE = 'sles',
+  MANJARO = 'manjaro',
+  MINT = 'linuxmint',
+  POP_OS = 'pop',
+  ELEMENTARY_OS = 'elementary',
+  KALI = 'kali',
+  GENTOO = 'gentoo',
+  SLACKWARE = 'slackware',
 }

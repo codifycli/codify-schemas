@@ -30,7 +30,14 @@
             "items": {
               "enum": ["Darwin", "Linux", "Windows_NT"]
             }
+          },
+          "linuxDistros": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
+
         },
         "required": [
           "type",

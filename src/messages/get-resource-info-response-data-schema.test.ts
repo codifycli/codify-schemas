@@ -1,7 +1,7 @@
 import schema from './get-resource-info-response-data-schema.json';
 import { describe, it, expect } from 'vitest'
 import Ajv from 'ajv'
-import {GetResourceInfoResponseData} from "../types.js";
+import {GetResourceInfoResponseData} from "../types/index.js";
 
 const ajv = new Ajv({
   strict: true,

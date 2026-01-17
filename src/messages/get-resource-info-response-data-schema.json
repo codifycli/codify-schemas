@@ -28,6 +28,13 @@
         "enum": ["Darwin", "Linux", "Windows_NT"]
       }
     },
+    "linuxDistros": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "description": "The Linux distros the resource is compatible with"
+      }
+    },
     "import": {
       "type": "object",
       "properties": {
