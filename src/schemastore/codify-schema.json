@@ -252,7 +252,6 @@
             "title": "aliases"
           },
           "declarationsOnly": {
-            "default": false,
             "type": "boolean",
             "title": "aliases",
             "description": "aliases resource. Can be used to manage aliases"
@@ -285,12 +284,11 @@
             "type": "string"
           }
         },
-        "required": [
-          "declarationsOnly",
-          "type"
-        ],
         "additionalProperties": false,
-        "description": "aliases resource. Can be used to manage aliases"
+        "description": "aliases resource. Can be used to manage aliases",
+        "required": [
+          "type"
+        ]
       },
       {
         "$comment": "https://docs.codifycli.com/core-resources/homebrew/",
