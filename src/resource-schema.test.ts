@@ -36,4 +36,12 @@ describe("Resource schema tests", () => {
       expect(validate({ type: "type", dependsOn: "item1" })).to.be.false;
       expect(validate({ type: "type", dependsOn: [6] })).to.be.false;
    })
+
+   it("os supports linux, macOS, and windows", () => {
+      const validate = ajv.compile(schema);
+      expect(validate({ type: "type", os: ["macOS", "windows", "linux"] })).to.be.true;
+      expect(validate({ type: "type", os: ["item1", "item1"] })).to.be.false;
+      expect(validate({ type: "type", os: ["macOS"] })).to.be.true;
+      expect(validate({ type: "type", os: ["macOS", "macOS"] })).to.be.false;
+   })
 });

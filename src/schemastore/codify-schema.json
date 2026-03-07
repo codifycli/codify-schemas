@@ -47,6 +47,17 @@
             "type": "string",
             "description": "The global username to set for git"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -72,6 +83,17 @@
       {
         "type": "object",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -118,6 +140,17 @@
             "default": false,
             "description": "Only plan and manage explicitly declared paths found in shell startup scripts. This value is forced to true for stateful mode"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -154,6 +187,17 @@
             "type": "string",
             "description": "The alias value"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -176,6 +220,75 @@
           "type"
         ],
         "additionalProperties": false
+      },
+      {
+        "type": "object",
+        "properties": {
+          "aliases": {
+            "description": "aliases resource. Can be used to manage aliases",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "alias": {
+                  "type": "string",
+                  "title": "aliases",
+                  "description": "aliases resource. Can be used to manage aliases"
+                },
+                "value": {
+                  "type": "string",
+                  "title": "aliases",
+                  "description": "aliases resource. Can be used to manage aliases"
+                }
+              },
+              "required": [
+                "alias",
+                "value"
+              ],
+              "additionalProperties": false,
+              "title": "aliases",
+              "description": "aliases resource. Can be used to manage aliases"
+            },
+            "title": "aliases"
+          },
+          "declarationsOnly": {
+            "type": "boolean",
+            "title": "aliases",
+            "description": "aliases resource. Can be used to manage aliases"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "aliases",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "aliases resource. Can be used to manage aliases",
+        "required": [
+          "type"
+        ]
       },
       {
         "$comment": "https://docs.codifycli.com/core-resources/homebrew/",
@@ -210,6 +323,17 @@
           "onlyPlanUserInstalled": {
             "type": "boolean",
             "description": "Only consider packages that the user has explicitly specified in the plan and ignore any dependent packages"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -249,6 +373,17 @@
             "type": "string",
             "description": "The global Python version set by pyenv."
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -276,6 +411,17 @@
         "description": "Installs git-lfs. This resource will automatically activate git-lfs as well.",
         "type": "object",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -303,6 +449,17 @@
         "type": "object",
         "description": "Installs aws-cli.",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -363,6 +520,17 @@
             "type": "string",
             "description": "The metadata service num attempts"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -397,6 +565,17 @@
           "version": {
             "type": "string",
             "description": "The specific version of Terraform to install. Defaults to latest."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -436,6 +615,17 @@
             "description": "The global Node version set by nvm.",
             "type": "string"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -474,6 +664,17 @@
             "description": "Set the global Java version using Jenv.",
             "type": "string"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -501,6 +702,17 @@
         "type": "object",
         "description": "Installs pgcli.",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -533,6 +745,17 @@
             "description": "The directory to install VSCode into. Defaults to /Applications.",
             "default": "/Applications"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -564,6 +787,13 @@
             "type": "string",
             "description": "Remote repository to clone repo from."
           },
+          "repositories": {
+            "type": "array",
+            "description": "Remote repositories to clone. This is a convenience property for cloning multiple repositories at once.",
+            "items": {
+              "type": "string"
+            }
+          },
           "parentDirectory": {
             "type": "string",
             "description": "Parent directory to clone into. The folder name will use default git semantics which extracts the last part of the clone url. Only one of parentDirectory or directory can be specified"
@@ -575,6 +805,17 @@
           "autoVerifySSH": {
             "type": "boolean",
             "description": "Automatically verifies the ssh connection for ssh git clones. Defaults to true."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -599,18 +840,28 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/android-studio/",
         "type": "object",
-        "description": "Install Android Studios.",
         "properties": {
           "version": {
+            "description": "android-studio resource. Can be used to manage android-studio",
             "type": "string",
-            "description": "Android studios version. Visit: https://developer.android.com/studio/releases for version info"
+            "title": "android-studio"
           },
           "directory": {
+            "description": "android-studio resource. Can be used to manage android-studio",
             "type": "string",
-            "description": "The directory to install Android Studios into. Defaults to /Applications",
-            "default": "/Applications"
+            "title": "android-studio"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -630,21 +881,34 @@
           }
         },
         "additionalProperties": false,
+        "description": "android-studio resource. Can be used to manage android-studio",
         "required": [
           "type"
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/asdf/asdf/",
         "type": "object",
-        "description": "Installs asdf and manages asdf plugins. Use 'asdf-install' or 'asdf-plugin' to install the actual tool. Use 'asdf-global' or 'asdf-local' to activate the tool in the shell.",
         "properties": {
           "plugins": {
+            "description": "asdf resource. Can be used to manage asdf",
             "type": "array",
-            "description": "Asdf plugins to install. See: https://github.com/asdf-community for a full list",
             "items": {
-              "type": "string"
-            }
+              "type": "string",
+              "title": "asdf",
+              "description": "asdf resource. Can be used to manage asdf"
+            },
+            "title": "asdf"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -664,29 +928,44 @@
           }
         },
         "additionalProperties": false,
+        "description": "asdf resource. Can be used to manage asdf",
         "required": [
           "type"
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/asdf/asdf-plugin/",
-        "description": "Installs a plugin and manages specific tool versions.",
         "type": "object",
         "properties": {
           "plugin": {
+            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
             "type": "string",
-            "description": "Asdf plugin name"
+            "title": "asdf-plugin"
           },
           "versions": {
+            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
             "type": "array",
-            "description": "A list of versions to install",
             "items": {
-              "type": "string"
-            }
+              "type": "string",
+              "title": "asdf-plugin",
+              "description": "asdf-plugin resource. Can be used to manage asdf-plugin"
+            },
+            "title": "asdf-plugin"
           },
           "gitUrl": {
+            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
             "type": "string",
-            "description": "The gitUrl of the plugin"
+            "title": "asdf-plugin"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -709,112 +988,42 @@
           "plugin",
           "type"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "asdf-plugin resource. Can be used to manage asdf-plugin"
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/asdf/asdf-global/",
-        "type": "object",
-        "description": "Manage the asdf global version for a tool. An asdf-global or asdf-local resource must be specified before a tool installed with asdf is active in the shell.",
-        "properties": {
-          "plugin": {
-            "type": "string",
-            "description": "Asdf plugin name"
-          },
-          "version": {
-            "type": "string",
-            "description": "A version to install"
-          },
-          "name": {
-            "description": "Optional name. Useful for specifying multiple resources of the same type",
-            "type": "string",
-            "pattern": "^[\\w-]+$"
-          },
-          "dependsOn": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "uniqueItems": true
-          },
-          "type": {
-            "const": "asdf-global",
-            "type": "string"
-          }
-        },
-        "required": [
-          "plugin",
-          "version",
-          "type"
-        ],
-        "additionalProperties": false
-      },
-      {
-        "$comment": "https://docs.codifycli.com/core-resources/asdf/asdf-local/",
-        "description": "Manage the asdf local version for a tool. An asdf-global or asdf-local resource must be specified before a tool installed with asdf is active in the shell.",
         "type": "object",
         "properties": {
           "plugin": {
+            "description": "asdf-install resource. Can be used to manage asdf-install",
             "type": "string",
-            "description": "Asdf plugin name"
-          },
-          "version": {
-            "type": "string",
-            "description": "A version to install"
-          },
-          "directory": {
-            "type": "string",
-            "description": "A local install of the version. Provide the location to install the version. For the current directory use '.'"
-          },
-          "directories": {
-            "type": "array",
-            "description": "An array of install locations for the specified version. For the current directory use '.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "name": {
-            "description": "Optional name. Useful for specifying multiple resources of the same type",
-            "type": "string",
-            "pattern": "^[\\w-]+$"
-          },
-          "dependsOn": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "uniqueItems": true
-          },
-          "type": {
-            "const": "asdf-local",
-            "type": "string"
-          }
-        },
-        "required": [
-          "plugin",
-          "version",
-          "type"
-        ],
-        "additionalProperties": false
-      },
-      {
-        "$comment": "https://docs.codifycli.com/core-resources/asdf/asdf-install/",
-        "type": "object",
-        "description": "Install a .tools-version file or directly install an asdf plugin + tool version.",
-        "properties": {
-          "plugin": {
-            "type": "string",
-            "description": "Asdf plugin name"
+            "title": "asdf-install"
           },
           "versions": {
+            "description": "asdf-install resource. Can be used to manage asdf-install",
             "type": "array",
-            "description": "A list of versions to install",
             "items": {
-              "type": "string"
-            }
+              "type": "string",
+              "title": "asdf-install",
+              "description": "asdf-install resource. Can be used to manage asdf-install"
+            },
+            "title": "asdf-install"
           },
           "directory": {
+            "description": "asdf-install resource. Can be used to manage asdf-install",
             "type": "string",
-            "description": "The directory to run the install command"
+            "title": "asdf-install"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -834,6 +1043,7 @@
           }
         },
         "additionalProperties": false,
+        "description": "asdf-install resource. Can be used to manage asdf-install",
         "required": [
           "type"
         ]
@@ -873,6 +1083,17 @@
           "folder": {
             "type": "string",
             "description": "The folder to generate the ssh key in. Defaults to `$HOME/.ssh`"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -960,6 +1181,17 @@
               }
             }
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -995,6 +1227,17 @@
           "appleUseKeychain": {
             "type": "boolean",
             "description": "Corresponds to the --apple-use-keychain parameter. Controls whether the key should be loaded into the apple keychain. Only keys with a passphrase can be loaded"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1036,6 +1279,17 @@
             "type": "string",
             "description": "The directory that the action should be ran in."
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1060,21 +1314,33 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/files/file/",
-        "description": "Manages a file.",
         "type": "object",
         "properties": {
           "path": {
+            "description": "file resource. Can be used to manage file",
             "type": "string",
-            "description": "The location of the file."
+            "title": "file"
           },
           "contents": {
+            "description": "file resource. Can be used to manage file",
             "type": "string",
-            "description": "The contents of the file."
+            "title": "file"
           },
           "onlyCreate": {
+            "description": "file resource. Can be used to manage file",
             "type": "boolean",
-            "description": "Forces the resource to only create the file if it doesn't exist but don't detect any content changes."
+            "title": "file"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1098,7 +1364,8 @@
           "contents",
           "type"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "description": "file resource. Can be used to manage file"
       },
       {
         "$comment": "https://docs.codifycli.com/core-resources/files/remote-file/",
@@ -1120,6 +1387,17 @@
           "onlyCreate": {
             "type": "boolean",
             "description": "Forces the resource to only create the file if it doesn't exist but don't detect any content changes. Also skips uploading the file to Codify cloud on refresh and import."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1150,6 +1428,17 @@
         "type": "object",
         "description": "Install and manage local packages with virtualenv",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1205,6 +1494,17 @@
             "type": "boolean",
             "description": "If an requirements.txt is available in the cwd, automatically install it when a virtual env is first created."
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1241,6 +1541,17 @@
             "type": "string",
             "description": "Set the global node version. Corresponds to pnpm env --global use"
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1266,6 +1577,17 @@
       {
         "type": "object",
         "properties": {
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1336,6 +1658,17 @@
             "type": "boolean",
             "description": "If an requirements.txt is available in the cwd, automatically install it when a virtual env is first created."
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1400,6 +1733,17 @@
               "type": "string"
             }
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1442,6 +1786,17 @@
           "cwd": {
             "type": "string",
             "description": "The working directory to run commands from. If cwd is supplied, the other parameters can be specified as relative to cwd."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1495,6 +1850,17 @@
                 }
               ]
             }
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1551,6 +1917,17 @@
               ]
             }
           },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
             "type": "string",
@@ -1574,6 +1951,58 @@
         ]
       },
       {
+        "$comment": "https://docs.codifycli.com/core-resources/javascript/npm-login/",
+        "description": "Manage npm login/authentication in ~/.npmrc, including scoped registry mapping and tokens.",
+        "type": "object",
+        "properties": {
+          "authToken": {
+            "type": "string",
+            "description": "The npm auth token used for authenticating with the registry. If not provided, then web login is assumed"
+          },
+          "scope": {
+            "type": "string",
+            "description": "Optional npm scope (e.g. @myorg) to bind to a specific registry.",
+            "pattern": "^@.+\\.?"
+          },
+          "registry": {
+            "type": "string",
+            "description": "Registry URL to use for authentication and optional scope mapping."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "npm-login",
+            "type": "string"
+          }
+        },
+        "required": [
+          "authToken",
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      {
         "$comment": "https://docs.codifycli.com/core-resources/docker/",
         "type": "object",
         "description": "Installs docker.",
@@ -1585,6 +2014,17 @@
           "useCurrentUser": {
             "type": "boolean",
             "description": "Use the current user to install docker. Defaults to true"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
           },
           "name": {
             "description": "Optional name. Useful for specifying multiple resources of the same type",
@@ -1607,6 +2047,413 @@
         "required": [
           "type"
         ]
+      },
+      {
+        "$comment": "https://docs.codifycli.com/core-resources/apt/",
+        "description": "Manage apt packages on Debian-based systems.",
+        "type": "object",
+        "properties": {
+          "install": {
+            "type": "array",
+            "description": "Installs packages using apt.",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "update": {
+            "type": "boolean",
+            "description": "Whether to run apt-get update before installing packages. Defaults to true."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "apt",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "$comment": "https://docs.codifycli.com/core-resources/yum/",
+        "description": "Manage yum packages on Red Hat-based systems.",
+        "type": "object",
+        "properties": {
+          "install": {
+            "type": "array",
+            "description": "Installs packages using yum.",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "update": {
+            "type": "boolean",
+            "description": "Whether to run yum check-update before installing packages. Defaults to true."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "yum",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "$comment": "https://docs.codifycli.com/core-resources/dnf/",
+        "description": "Manage dnf packages on modern Red Hat-based systems.",
+        "type": "object",
+        "properties": {
+          "install": {
+            "type": "array",
+            "description": "Installs packages using dnf.",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "version": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "update": {
+            "type": "boolean",
+            "description": "Whether to run dnf check-update before installing packages. Defaults to true."
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "dnf",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "$comment": "https://docs.codifycli.com/core-resources/snap/",
+        "description": "Manage snap packages on Linux systems.",
+        "type": "object",
+        "properties": {
+          "install": {
+            "type": "array",
+            "description": "Installs packages using snap.",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "channel": {
+                      "type": "string",
+                      "description": "The channel to install from (e.g., stable, edge, beta, candidate)"
+                    },
+                    "classic": {
+                      "type": "boolean",
+                      "description": "Install the snap in classic mode (with full system access)"
+                    }
+                  },
+                  "required": [
+                    "name"
+                  ]
+                }
+              ]
+            }
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "snap",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "tartHome": {
+            "description": "tart resource. Can be used to manage tart",
+            "type": "string",
+            "title": "tart"
+          },
+          "clone": {
+            "description": "tart resource. Can be used to manage tart",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "sourceName": {
+                  "description": "tart resource. Can be used to manage tart",
+                  "type": "string",
+                  "title": "tart"
+                },
+                "name": {
+                  "description": "tart resource. Can be used to manage tart",
+                  "type": "string",
+                  "title": "tart"
+                }
+              },
+              "required": [
+                "sourceName",
+                "name"
+              ],
+              "additionalProperties": false,
+              "title": "tart",
+              "description": "tart resource. Can be used to manage tart"
+            },
+            "title": "tart"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "tart",
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "description": "tart resource. Can be used to manage tart",
+        "required": [
+          "type"
+        ]
+      },
+      {
+        "type": "object",
+        "properties": {
+          "sourceName": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "string",
+            "title": "tart-vm"
+          },
+          "localName": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "string",
+            "title": "tart-vm"
+          },
+          "memory": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "number",
+            "title": "tart-vm"
+          },
+          "cpu": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "number",
+            "title": "tart-vm"
+          },
+          "display": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "string",
+            "title": "tart-vm"
+          },
+          "diskSize": {
+            "description": "tart-vm resource. Can be used to manage tart-vm",
+            "type": "number",
+            "title": "tart-vm"
+          },
+          "os": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "name": {
+            "description": "Optional name. Useful for specifying multiple resources of the same type",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "type": {
+            "const": "tart-vm",
+            "type": "string"
+          }
+        },
+        "required": [
+          "sourceName",
+          "localName",
+          "type"
+        ],
+        "additionalProperties": false,
+        "description": "tart-vm resource. Can be used to manage tart-vm"
       }
     ]
   }

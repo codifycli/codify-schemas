@@ -36,7 +36,8 @@ async function main() {
       schema: JSON.stringify(resource),
       documentation_url: resource.$comment,
     }, {onConflict: ['type', 'plugin_id']})
-      .select();
+      .select()
+      .throwOnError();
 
     const { id: resourceId } = resourceRow.data![0];
 
@@ -49,7 +50,9 @@ async function main() {
         schema: property,
       }))
 
-    await client.from('registry_resource_parameters').upsert(parameters, {onConflict: ['name', 'resource_id']});
+    await client.from('registry_resource_parameters')
+      .upsert(parameters, {onConflict: ['name', 'resource_id']})
+      .throwOnError();
   }
 
   return new Response('Upload complete');

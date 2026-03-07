@@ -1,5 +1,5 @@
-import { SpawnOptions } from "node:child_process";
-import { ErrorObject } from "ajv";
+import type {SpawnOptions} from "node:child_process";
+import type {ErrorObject} from "ajv";
 
 export interface StringIndexedObject {
   [x: string]: unknown;
@@ -15,9 +15,16 @@ export interface ProjectConfig extends Config {
   description?: string;
 }
 
+export enum ResourceOs {
+  LINUX = 'linux',
+  MACOS = 'macOS',
+  WINDOWS = 'windows',
+}
+
 export interface ResourceConfig extends Config {
   name?: string;
   dependsOn?: string[];
+  os?: Array<ResourceOs>;
 }
 
 export enum MessageStatus {
@@ -114,6 +121,7 @@ export interface GetResourceInfoResponseData {
     requiredParameters: string[] | null;
   },
   operatingSystems?: OS[];
+  linuxDistros?: LinuxDistro[];
   importAndDestroy?: {
     requiredParameters: string[] | null;
     preventImport?: boolean;
@@ -172,6 +180,7 @@ export interface ResourceDefinition {
   type: string;
   dependencies: string[];
   operatingSystems?: OS[];
+  linuxDistros?: LinuxDistro[];
   sensitiveParameters?: string[];
 }
 
@@ -183,16 +192,13 @@ export interface InitializeResponseData {
   resourceDefinitions: Array<ResourceDefinition>;
 }
 
-export enum CommandRequestType {
-  SUDO = 'sudo',
-  INTERACTIVE = 'interactive'
-}
-
 export interface CommandRequestData {
   command: string;
-  type: CommandRequestType,
   options: {
     cwd?: string;
+    interactive?: boolean;
+    requiresRoot?: boolean;
+    stdin?: boolean;
   } & Omit<SpawnOptions, 'stdio' | 'shell' | 'detached'>
 }
 
@@ -208,6 +214,12 @@ export interface PressKeyToContinueRequestData {
 
 export interface PressKeyToContinueResponseData {}
 
+export interface SetVerbosityRequestData {
+  verbosityLevel: number;
+}
+
+export interface EmptyResponseData {}
+
 export enum SpawnStatus {
   SUCCESS = 'success',
   ERROR = 'error',
@@ -217,4 +229,26 @@ export enum OS {
   Darwin = 'Darwin',
   Linux = 'Linux',
   Windows = 'Windows_NT',
+}
+
+export enum LinuxDistro {
+  DEBIAN_BASED = 'debian-based',
+  RPM_BASED = 'rpm-based',
+  ARCH = 'arch',
+  CENTOS = 'centos',
+  DEBIAN = 'debian',
+  FEDORA = 'fedora',
+  RHEL = 'rhel',
+  UBUNTU = 'ubuntu',
+  ALPINE = 'alpine',
+  AMAZON_LINUX = 'amzn',
+  OPENSUSE = 'opensuse',
+  SUSE = 'sles',
+  MANJARO = 'manjaro',
+  MINT = 'linuxmint',
+  POP_OS = 'pop',
+  ELEMENTARY_OS = 'elementary',
+  KALI = 'kali',
+  GENTOO = 'gentoo',
+  SLACKWARE = 'slackware',
 }

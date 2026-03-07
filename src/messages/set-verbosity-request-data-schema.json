@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/set-verbosity-request.json",
+  "title": "Set Verbosity Request",
+  "description": "Request the plugin to set its verbosity level",
+  "type": "object",
+  "properties": {
+    "verbosityLevel": {
+      "type": "number",
+      "description": "The verbosity level to set for the plugin"
+    }
+  },
+  "additionalProperties": false
+}

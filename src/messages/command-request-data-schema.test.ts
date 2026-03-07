@@ -15,7 +15,6 @@ describe('Get resources response data schema', () => {
     const validate = ajv.compile(schema);
     expect(validate({
       command: 'abc def',
-      type: 'sudo'
     })).to.be.true;
   })
 
@@ -23,9 +22,9 @@ describe('Get resources response data schema', () => {
     const validate = ajv.compile(schema);
     expect(validate({
       command: 'abc def',
-      type: 'interactive',
       options: {
         cwd: '.',
+        interactive: true,
       }
     })).to.be.true;
   })
@@ -34,7 +33,6 @@ describe('Get resources response data schema', () => {
     const validate = ajv.compile(schema);
     expect(validate({
       command: 'abc def',
-      type: 'sudo',
       options: {
         cwd: '.',
         requiresRoot: true,
@@ -47,9 +45,9 @@ describe('Get resources response data schema', () => {
     const validate = ajv.compile(schema);
     expect(validate({
       command: 'abc def',
-      type: 'interactive',
       options: {
         cwd: '.',
+        requiresRoot: true,
       },
       additional: {}
     })).to.be.false;

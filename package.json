@@ -1,7 +1,7 @@
 {
-  "name": "codify-schemas",
-  "version": "1.0.86-beta1",
-  "description": "",
+  "name": "@codifycli/schemas",
+  "version": "1.0.0",
+  "description": "JSON Schemas and types that govern the message format and Codify config formats for Codify",
   "type": "module",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,11 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ajv": "^8.12.0"
+    "ajv": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "20.17.14",
-    "vitest": "^1.4.0",
+    "vitest": "^4.0.18",
     "typescript": "^5.3.3",
     "ajv-formats": "^3.0.1",
     "@supabase/supabase-js": "^2.50.0",

@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "https://www.codifycli.com/sudo-request.json",
+  "$id": "https://www.codifycli.com/command-request.json",
   "title": "Command request",
   "description": "Request the core CLI to perform a command. This is required for sudo and interactive",
   "type": "object",
@@ -8,10 +8,6 @@
     "command": {
       "type": "string",
       "description": "The command that is requesting sudo"
-    },
-    "type": {
-      "enum": ["sudo", "interactive"],
-      "description": "The request type. Right now only sudo and interactive are supported"
     },
     "options": {
       "type": "object",
@@ -24,11 +20,23 @@
         "argv0": {
           "type": "string",
           "description": "Arguments to pass in"
+        },
+        "requiresRoot": {
+          "type": "boolean",
+          "description": "Whether or not this command needs to be run in root"
+        },
+        "interactive": {
+          "type": "boolean",
+          "description": "Whether or not this command needs to be run in interactive mode"
+        },
+        "stdin": {
+          "type": "boolean",
+          "description": "Whether or not this command requires stdin"
         }
       },
       "additionalProperties": true
     }
   },
-  "required": ["command", "type"],
+  "required": ["command"],
   "additionalProperties": false
 }

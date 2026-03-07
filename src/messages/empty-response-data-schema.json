@@ -1,0 +1,7 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/empty-response-data-schema.json",
+  "title": "Empty Response Schema Data",
+  "description": "An empty response",
+  "type": "null"
+}
