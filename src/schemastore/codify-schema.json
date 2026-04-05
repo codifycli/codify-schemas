@@ -35,7 +35,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/git/git/",
+        "$comment": "https://codifycli.com/docs/core-resources/git/git/",
         "description": "Set and manage global git settings (email and username)",
         "type": "object",
         "properties": {
@@ -116,7 +116,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/path/",
+        "$comment": "https://codifycli.com/docs/core-resources/path/",
         "description": "Manages user paths. It will permanently save paths by adding them to the shell startup script.",
         "type": "object",
         "properties": {
@@ -174,7 +174,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/alias/",
+        "$comment": "https://codifycli.com/docs/core-resources/alias/",
         "description": "Manages user aliases. It permanently saves the alias by adding it to the shell startup script.",
         "type": "object",
         "properties": {
@@ -291,7 +291,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/homebrew/",
+        "$comment": "https://codifycli.com/docs/core-resources/homebrew/",
         "description": "Install homebrew and manages formulae, casks and taps.",
         "type": "object",
         "properties": {
@@ -358,7 +358,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/pyenv/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/pyenv/",
         "type": "object",
         "description": "Install and manage Python versions using pyenv.",
         "properties": {
@@ -407,7 +407,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/git/git-lfs/",
+        "$comment": "https://codifycli.com/docs/core-resources/git/git-lfs/",
         "description": "Installs git-lfs. This resource will automatically activate git-lfs as well.",
         "type": "object",
         "properties": {
@@ -445,7 +445,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/aws-cli/",
+        "$comment": "https://codifycli.com/docs/core-resources/aws-cli/",
         "type": "object",
         "description": "Installs aws-cli.",
         "properties": {
@@ -483,7 +483,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/aws-profile/",
+        "$comment": "https://codifycli.com/docs/core-resources/aws-profile/",
         "type": "object",
         "description": "Configures AWS profiles.",
         "properties": {
@@ -554,7 +554,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/terraform/",
+        "$comment": "https://codifycli.com/docs/core-resources/terraform/",
         "description": "Installs Terraform.",
         "type": "object",
         "properties": {
@@ -600,7 +600,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/javascript/nvm/",
+        "$comment": "https://codifycli.com/docs/core-resources/javascript/nvm/",
         "description": "Install and manage Node versions using nvm.",
         "type": "object",
         "properties": {
@@ -649,7 +649,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/jenv/",
+        "$comment": "https://codifycli.com/docs/core-resources/jenv/",
         "type": "object",
         "description": "Install jenv and manage Java versions using jenv. Jenv cannot install Java directly, it needs to be installed separately and added to Jenv.",
         "properties": {
@@ -698,7 +698,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/pgcli/",
+        "$comment": "https://codifycli.com/docs/core-resources/pgcli/",
         "type": "object",
         "description": "Installs pgcli.",
         "properties": {
@@ -736,7 +736,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/vscode/",
+        "$comment": "https://codifycli.com/docs/core-resources/vscode/",
         "description": "Installs Vscode.",
         "type": "object",
         "properties": {
@@ -779,7 +779,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/git/git-repository/",
+        "$comment": "https://codifycli.com/docs/core-resources/git/git-repository/",
         "description": "Git clone a repository. Choose either to specify the exact directory to clone into or the parent directory (it deduces the folder name using the repository name).",
         "type": "object",
         "properties": {
@@ -1049,7 +1049,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/ssh/ssh-key/",
+        "$comment": "https://codifycli.com/docs/core-resources/ssh/ssh-key/",
         "description": "Generate and manage a ssh private/public key.",
         "type": "object",
         "properties": {
@@ -1119,7 +1119,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/ssh/ssh-config/",
+        "$comment": "https://codifycli.com/docs/core-resources/ssh/ssh-config/",
         "description": "Configures the ssh config file.",
         "type": "object",
         "properties": {
@@ -1216,7 +1216,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/ssh/ssh-add/",
+        "$comment": "https://codifycli.com/docs/core-resources/ssh/ssh-add/",
         "description": "Adds ssh private keys to the ssh agent.",
         "type": "object",
         "properties": {
@@ -1263,7 +1263,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/scripting/action/",
+        "$comment": "https://codifycli.com/docs/core-resources/scripting/action/",
         "description": "Run custom scripts using the action resource. A condition can be specified to conditionally trigger a script.",
         "type": "object",
         "properties": {
@@ -1368,7 +1368,7 @@
         "description": "file resource. Can be used to manage file"
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/files/remote-file/",
+        "$comment": "https://codifycli.com/docs/core-resources/files/remote-file/",
         "description": "Represents a file stored on codify cloud. Use apply to pull changes from remote and save to local. Use refresh and import to upload changes to remote.",
         "type": "object",
         "properties": {
@@ -1424,7 +1424,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/virtualenv-project/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/virtualenv-project/",
         "type": "object",
         "description": "Install and manage local packages with virtualenv",
         "properties": {
@@ -1462,7 +1462,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/virtualenv-project/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/virtualenv-project/",
         "type": "object",
         "description": "Install and manage local packages for a project with virtualenv",
         "properties": {
@@ -1529,7 +1529,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/javascript/pnpm/",
+        "$comment": "https://codifycli.com/docs/core-resources/javascript/pnpm/",
         "description": "Install and manage Node dependencies and versions using pnpm.",
         "type": "object",
         "properties": {
@@ -1610,7 +1610,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/venv-project/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/venv-project/",
         "type": "object",
         "description": "Install and manage local packages for a project with venv",
         "properties": {
@@ -1693,7 +1693,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/pip/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/pip/",
         "type": "object",
         "description": "Install and manage packages using pip",
         "properties": {
@@ -1768,7 +1768,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/python/pip-sync/",
+        "$comment": "https://codifycli.com/docs/core-resources/python/pip-sync/",
         "type": "object",
         "description": "Install and manage though pip-tools by installing + uninstalling packages using pip-sync",
         "properties": {
@@ -1822,7 +1822,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/macports/",
+        "$comment": "https://codifycli.com/docs/core-resources/macports/",
         "description": "Install macports and manage packages.",
         "type": "object",
         "properties": {
@@ -1885,7 +1885,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/javascript/npm/",
+        "$comment": "https://codifycli.com/docs/core-resources/javascript/npm/",
         "description": "Install and manage packages using NPM.",
         "type": "object",
         "properties": {
@@ -1951,7 +1951,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/javascript/npm-login/",
+        "$comment": "https://codifycli.com/docs/core-resources/javascript/npm-login/",
         "description": "Manage npm login/authentication in ~/.npmrc, including scoped registry mapping and tokens.",
         "type": "object",
         "properties": {
@@ -2003,7 +2003,7 @@
         "additionalProperties": false
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/docker/",
+        "$comment": "https://codifycli.com/docs/core-resources/docker/",
         "type": "object",
         "description": "Installs docker.",
         "properties": {
@@ -2049,7 +2049,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/apt/",
+        "$comment": "https://codifycli.com/docs/core-resources/apt/",
         "description": "Manage apt packages on Debian-based systems.",
         "type": "object",
         "properties": {
@@ -2116,7 +2116,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/yum/",
+        "$comment": "https://codifycli.com/docs/core-resources/yum/",
         "description": "Manage yum packages on Red Hat-based systems.",
         "type": "object",
         "properties": {
@@ -2183,7 +2183,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/dnf/",
+        "$comment": "https://codifycli.com/docs/core-resources/dnf/",
         "description": "Manage dnf packages on modern Red Hat-based systems.",
         "type": "object",
         "properties": {
@@ -2250,7 +2250,7 @@
         ]
       },
       {
-        "$comment": "https://docs.codifycli.com/core-resources/snap/",
+        "$comment": "https://codifycli.com/docs/core-resources/snap/",
         "description": "Manage snap packages on Linux systems.",
         "type": "object",
         "properties": {
