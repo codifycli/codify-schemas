@@ -225,36 +225,30 @@
         "type": "object",
         "properties": {
           "aliases": {
-            "description": "aliases resource. Can be used to manage aliases",
+            "description": "Aliases to create",
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
                 "alias": {
-                  "type": "string",
-                  "title": "aliases",
-                  "description": "aliases resource. Can be used to manage aliases"
+                  "description": "The name of the alias",
+                  "type": "string"
                 },
                 "value": {
-                  "type": "string",
-                  "title": "aliases",
-                  "description": "aliases resource. Can be used to manage aliases"
+                  "description": "The alias value",
+                  "type": "string"
                 }
               },
               "required": [
                 "alias",
                 "value"
               ],
-              "additionalProperties": false,
-              "title": "aliases",
-              "description": "aliases resource. Can be used to manage aliases"
-            },
-            "title": "aliases"
+              "additionalProperties": false
+            }
           },
           "declarationsOnly": {
-            "type": "boolean",
-            "title": "aliases",
-            "description": "aliases resource. Can be used to manage aliases"
+            "description": "Only plan and manage explicitly declared aliases found in shell startup scripts.",
+            "type": "boolean"
           },
           "os": {
             "type": "array",
@@ -285,7 +279,8 @@
           }
         },
         "additionalProperties": false,
-        "description": "aliases resource. Can be used to manage aliases",
+        "description": "Aliases resource. Can be used to manage multiple aliases",
+        "$comment": "https://codifycli.com/docs/resources/shell/aliases",
         "required": [
           "type"
         ]
@@ -843,14 +838,12 @@
         "type": "object",
         "properties": {
           "version": {
-            "description": "android-studio resource. Can be used to manage android-studio",
-            "type": "string",
-            "title": "android-studio"
+            "description": "Android studios version. Visit: https://developer.android.com/studio/releases for version info",
+            "type": "string"
           },
           "directory": {
-            "description": "android-studio resource. Can be used to manage android-studio",
-            "type": "string",
-            "title": "android-studio"
+            "description": "The directory to install Android Studios into. Defaults to /Applications",
+            "type": "string"
           },
           "os": {
             "type": "array",
@@ -882,6 +875,7 @@
         },
         "additionalProperties": false,
         "description": "android-studio resource. Can be used to manage android-studio",
+        "$comment": "https://codifycli.com/docs/resources/android-studio",
         "required": [
           "type"
         ]
@@ -890,14 +884,11 @@
         "type": "object",
         "properties": {
           "plugins": {
-            "description": "asdf resource. Can be used to manage asdf",
+            "description": "Asdf plugins to install. See: https://github.com/asdf-community for a full list",
             "type": "array",
             "items": {
-              "type": "string",
-              "title": "asdf",
-              "description": "asdf resource. Can be used to manage asdf"
-            },
-            "title": "asdf"
+              "type": "string"
+            }
           },
           "os": {
             "type": "array",
@@ -928,7 +919,8 @@
           }
         },
         "additionalProperties": false,
-        "description": "asdf resource. Can be used to manage asdf",
+        "description": "Asdf resource for installing asdf, a tool version manager",
+        "$comment": "https://codifycli.com/docs/resources/asdf/asdf",
         "required": [
           "type"
         ]
@@ -937,24 +929,19 @@
         "type": "object",
         "properties": {
           "plugin": {
-            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
-            "type": "string",
-            "title": "asdf-plugin"
+            "description": "Asdf plugin name",
+            "type": "string"
           },
           "versions": {
-            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
+            "description": "A list of versions to install",
             "type": "array",
             "items": {
-              "type": "string",
-              "title": "asdf-plugin",
-              "description": "asdf-plugin resource. Can be used to manage asdf-plugin"
-            },
-            "title": "asdf-plugin"
+              "type": "string"
+            }
           },
           "gitUrl": {
-            "description": "asdf-plugin resource. Can be used to manage asdf-plugin",
-            "type": "string",
-            "title": "asdf-plugin"
+            "description": "The gitUrl of the plugin",
+            "type": "string"
           },
           "os": {
             "type": "array",
@@ -989,30 +976,26 @@
           "type"
         ],
         "additionalProperties": false,
-        "description": "asdf-plugin resource. Can be used to manage asdf-plugin"
+        "description": "Asdf plugin resource for installing asdf plugins.",
+        "$comment": "https://codifycli.com/docs/resources/asdf/asdf-plugin"
       },
       {
         "type": "object",
         "properties": {
           "plugin": {
-            "description": "asdf-install resource. Can be used to manage asdf-install",
-            "type": "string",
-            "title": "asdf-install"
+            "description": "Asdf plugin name",
+            "type": "string"
           },
           "versions": {
-            "description": "asdf-install resource. Can be used to manage asdf-install",
+            "description": "A list of versions to install",
             "type": "array",
             "items": {
-              "type": "string",
-              "title": "asdf-install",
-              "description": "asdf-install resource. Can be used to manage asdf-install"
-            },
-            "title": "asdf-install"
+              "type": "string"
+            }
           },
           "directory": {
-            "description": "asdf-install resource. Can be used to manage asdf-install",
-            "type": "string",
-            "title": "asdf-install"
+            "description": "The directory to run the install command",
+            "type": "string"
           },
           "os": {
             "type": "array",
@@ -1043,7 +1026,8 @@
           }
         },
         "additionalProperties": false,
-        "description": "asdf-install resource. Can be used to manage asdf-install",
+        "description": "Install specific version of tools using asdf.",
+        "$comment": "https://codifycli.com/docs/resources/asdf/asdf-install",
         "required": [
           "type"
         ]
@@ -1317,19 +1301,16 @@
         "type": "object",
         "properties": {
           "path": {
-            "description": "file resource. Can be used to manage file",
-            "type": "string",
-            "title": "file"
+            "description": "The location of the file.",
+            "type": "string"
           },
           "contents": {
-            "description": "file resource. Can be used to manage file",
-            "type": "string",
-            "title": "file"
+            "description": "The contents of the file.",
+            "type": "string"
           },
           "onlyCreate": {
-            "description": "file resource. Can be used to manage file",
-            "type": "boolean",
-            "title": "file"
+            "description": "Forces the resource to only create the file if it doesn't exist but don't detect any content changes.",
+            "type": "boolean"
           },
           "os": {
             "type": "array",
@@ -1365,7 +1346,8 @@
           "type"
         ],
         "additionalProperties": false,
-        "description": "file resource. Can be used to manage file"
+        "description": "file resource. Can be used to manage file",
+        "$comment": "https://codifycli.com/docs/resources/scripting/file"
       },
       {
         "$comment": "https://codifycli.com/docs/resources/scripting/remote-file/",
@@ -2321,36 +2303,30 @@
         "type": "object",
         "properties": {
           "tartHome": {
-            "description": "tart resource. Can be used to manage tart",
-            "type": "string",
-            "title": "tart"
+            "description": "The home directory of tart. This controls where the images are stored. To create this, simply add an entry to the rc file of the shell specifying the TART_HOME environment variable",
+            "type": "string"
           },
           "clone": {
-            "description": "tart resource. Can be used to manage tart",
+            "description": "The image to clone. This is a stateful parameter that controls which images are cloned. Can be a string (clone directly) or an object with sourceName and name.",
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
                 "sourceName": {
-                  "description": "tart resource. Can be used to manage tart",
-                  "type": "string",
-                  "title": "tart"
+                  "description": "The source image to clone from (OCI registry)",
+                  "type": "string"
                 },
                 "name": {
-                  "description": "tart resource. Can be used to manage tart",
-                  "type": "string",
-                  "title": "tart"
+                  "description": "The local name for the cloned image",
+                  "type": "string"
                 }
               },
               "required": [
                 "sourceName",
                 "name"
               ],
-              "additionalProperties": false,
-              "title": "tart",
-              "description": "tart resource. Can be used to manage tart"
-            },
-            "title": "tart"
+              "additionalProperties": false
+            }
           },
           "os": {
             "type": "array",
@@ -2382,6 +2358,7 @@
         },
         "additionalProperties": false,
         "description": "tart resource. Can be used to manage tart",
+        "$comment": "https://codifycli.com/docs/resources/tart/tart",
         "required": [
           "type"
         ]
@@ -2390,34 +2367,28 @@
         "type": "object",
         "properties": {
           "sourceName": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "string",
-            "title": "tart-vm"
+            "description": "The source of the image (an OCI registry)",
+            "type": "string"
           },
           "localName": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "string",
-            "title": "tart-vm"
+            "description": "The local name of the image",
+            "type": "string"
           },
           "memory": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "number",
-            "title": "tart-vm"
+            "description": "Sets the memory of the vm in MB using tart set <vm-name> --memory",
+            "type": "number"
           },
           "cpu": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "number",
-            "title": "tart-vm"
+            "description": "Sets the cpu count of the vm using tart set <vm-name> --cpu",
+            "type": "number"
           },
           "display": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "string",
-            "title": "tart-vm"
+            "description": "Sets the display size in format <width>x<height>. For example 1200x800",
+            "type": "string"
           },
           "diskSize": {
-            "description": "tart-vm resource. Can be used to manage tart-vm",
-            "type": "number",
-            "title": "tart-vm"
+            "description": "The disk size in GB. Disk size can only be increased and not decreased",
+            "type": "number"
           },
           "os": {
             "type": "array",
@@ -2453,7 +2424,8 @@
           "type"
         ],
         "additionalProperties": false,
-        "description": "tart-vm resource. Can be used to manage tart-vm"
+        "description": "tart-vm resource. Can be used to manage tart-vm",
+        "$comment": "https://codifycli.com/docs/resources/tart/tart-vm"
       }
     ]
   }
