@@ -22,7 +22,7 @@
     "typescript": "^5.3.3",
     "ajv-formats": "^3.0.1",
     "@supabase/supabase-js": "^2.50.0",
-    "tsx": "^4.20.3",
+    "tsx": "^4.21.0",
     "dotenv": "^16.5.0"
   }
 }
