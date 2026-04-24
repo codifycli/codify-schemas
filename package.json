@@ -1,6 +1,6 @@
 {
   "name": "@codifycli/schemas",
-  "version": "1.0.0",
+  "version": "1.1.0-beta4",
   "description": "JSON Schemas and types that govern the message format and Codify config formats for Codify",
   "type": "module",
   "main": "dist/index.js",

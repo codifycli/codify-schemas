@@ -25,6 +25,7 @@ export interface ResourceConfig extends Config {
   name?: string;
   dependsOn?: string[];
   os?: Array<ResourceOs>;
+  distro?: Array<LinuxDistro>
 }
 
 export enum MessageStatus {
@@ -128,6 +129,11 @@ export interface GetResourceInfoResponseData {
   },
   sensitiveParameters?: string[];
   allowMultiple: boolean;
+  defaultConfig?: Record<string, unknown>;
+  exampleConfigs?: {
+    example1?: Record<string, unknown>;
+    example2?: Record<string, unknown>;
+  };
 }
 
 export interface MatchRequestData {
@@ -198,6 +204,7 @@ export interface CommandRequestData {
     cwd?: string;
     interactive?: boolean;
     requiresRoot?: boolean;
+    requiresSudoAskpass?: boolean;
     stdin?: boolean;
   } & Omit<SpawnOptions, 'stdio' | 'shell' | 'detached'>
 }
