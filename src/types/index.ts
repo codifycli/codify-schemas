@@ -196,6 +196,7 @@ export interface InitializeRequestData {
 
 export interface InitializeResponseData {
   resourceDefinitions: Array<ResourceDefinition>;
+  minSupportedCliVersion?: string;
 }
 
 export interface CommandRequestData {
