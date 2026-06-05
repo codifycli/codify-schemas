@@ -17,7 +17,8 @@ describe('Apply request data schema', () => {
   it("validates an error message", () => {
     const validate = ajv.compile(schema);
     expect(validate({
-      reason: "This was an error"
+      errorType: "unknown",
+      message: "This was an error"
     })).to.be.true;
   })
 })
