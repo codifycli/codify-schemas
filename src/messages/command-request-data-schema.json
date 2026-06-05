@@ -32,6 +32,10 @@
         "stdin": {
           "type": "boolean",
           "description": "Whether or not this command requires stdin"
+        },
+        "requiresSudoAskpass": {
+          "type": "boolean",
+          "description": "Whether to use SUDO_ASKPASS instead of sudo -S for password delivery"
         }
       },
       "additionalProperties": true

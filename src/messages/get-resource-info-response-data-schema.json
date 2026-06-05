@@ -70,6 +70,14 @@
     },
     "allowMultiple": {
       "type": "boolean"
+    },
+    "defaultConfig": {
+      "type": "object",
+      "description": "The default config that should be added. This prefills some parameters for the user to make it easier for them"
+    },
+    "exampleConfigs": {
+      "type": "object",
+      "description": "Some example configs. This makes it for the user."
     }
   },
   "required": ["type", "plugin"]

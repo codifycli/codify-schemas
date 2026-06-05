@@ -5,6 +5,9 @@
   "description": "Initialize the plugin",
   "type": "object",
   "properties": {
+    "minSupportedCliVersion": {
+      "type": "string"
+    },
     "resourceDefinitions": {
       "type": "array",
       "items": {

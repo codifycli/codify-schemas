@@ -9,13 +9,6 @@
       "type": "string",
       "pattern": "^[a-zA-Z][\\w-]+$"
     },
-    "os": {
-      "type": "array",
-      "items": {
-        "enum": ["linux", "macOS", "windows"]
-      },
-      "uniqueItems": true
-    },
     "name": {
       "description": "Optional name. Useful for specifying multiple resources of the same type",
       "type": "string",
@@ -25,6 +18,40 @@
       "type": "array",
       "items": {
         "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "os": {
+      "type": "array",
+      "items": {
+        "enum": ["linux", "macOS", "windows"]
+      },
+      "uniqueItems": true
+    },
+    "distro": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "debian-based",
+          "rpm-based",
+          "arch",
+          "centos",
+          "debian",
+          "fedora",
+          "rhel",
+          "ubuntu",
+          "alpine",
+          "amzn",
+          "opensuse",
+          "sles",
+          "manjaro",
+          "linuxmint",
+          "pop",
+          "elementary",
+          "kali",
+          "gentoo",
+          "slackware"
+        ]
       },
       "uniqueItems": true
     }

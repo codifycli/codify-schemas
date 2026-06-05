@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/apply-note-request.json",
+  "title": "Apply note request",
+  "description": "Sent by a plugin to leave a post-apply note for the user",
+  "type": "object",
+  "properties": {
+    "message": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "resourceType": {
+      "type": "string",
+      "maxLength": 100
+    }
+  },
+  "required": ["message"],
+  "additionalProperties": false
+}

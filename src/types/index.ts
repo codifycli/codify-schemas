@@ -25,11 +25,18 @@ export interface ResourceConfig extends Config {
   name?: string;
   dependsOn?: string[];
   os?: Array<ResourceOs>;
+  distro?: Array<LinuxDistro>
 }
 
 export enum MessageStatus {
   SUCCESS = 'success',
   ERROR = 'error',
+}
+
+export interface PluginErrorData {
+  errorType: string;
+  message: string;
+  data?: unknown;
 }
 
 export interface IpcMessage {
@@ -105,6 +112,7 @@ export interface PlanResponseData {
   }>
 }
 
+
 export interface GetResourceInfoRequestData {
   type: string;
 }
@@ -128,6 +136,11 @@ export interface GetResourceInfoResponseData {
   },
   sensitiveParameters?: string[];
   allowMultiple: boolean;
+  defaultConfig?: Record<string, unknown>;
+  exampleConfigs?: {
+    example1?: Record<string, unknown>;
+    example2?: Record<string, unknown>;
+  };
 }
 
 export interface MatchRequestData {
@@ -190,6 +203,7 @@ export interface InitializeRequestData {
 
 export interface InitializeResponseData {
   resourceDefinitions: Array<ResourceDefinition>;
+  minSupportedCliVersion?: string;
 }
 
 export interface CommandRequestData {
@@ -198,6 +212,7 @@ export interface CommandRequestData {
     cwd?: string;
     interactive?: boolean;
     requiresRoot?: boolean;
+    requiresSudoAskpass?: boolean;
     stdin?: boolean;
   } & Omit<SpawnOptions, 'stdio' | 'shell' | 'detached'>
 }
@@ -219,6 +234,11 @@ export interface SetVerbosityRequestData {
 }
 
 export interface EmptyResponseData {}
+
+export interface ApplyNoteRequestData {
+  message: string;
+  resourceType?: string;
+}
 
 export enum SpawnStatus {
   SUCCESS = 'success',
