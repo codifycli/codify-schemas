@@ -4,10 +4,17 @@
   "title": "Error Response Schema Data",
   "type": "object",
   "properties": {
-    "reason": {
-      "description": "A human read-able reason for the error",
+    "errorType": {
+      "description": "A string identifier for the error type (e.g. 'apply_validation', 'sudo_error', 'unknown')",
       "type": "string"
+    },
+    "message": {
+      "description": "A human-readable error message, always present",
+      "type": "string"
+    },
+    "data": {
+      "description": "Optional structured payload whose shape depends on errorType"
     }
   },
-  "required": ["reason"]
+  "required": ["errorType", "message"]
 }

@@ -5,5 +5,6 @@ export enum MessageCmd {
   APPLY = 'apply',
   COMMAND_REQUEST = 'command_request',
   PRESS_KEY_TO_CONTINUE_REQUEST = 'press_key_to_continue_request',
-  CODIFY_CREDENTIALS_REQUEST = 'codify_credentials_request'
+  CODIFY_CREDENTIALS_REQUEST = 'codify_credentials_request',
+  APPLY_NOTE_REQUEST = 'apply_note_request',
 }

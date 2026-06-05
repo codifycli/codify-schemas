@@ -33,6 +33,12 @@ export enum MessageStatus {
   ERROR = 'error',
 }
 
+export interface PluginErrorData {
+  errorType: string;
+  message: string;
+  data?: unknown;
+}
+
 export interface IpcMessage {
   cmd: string;
   status?: MessageStatus;
@@ -105,6 +111,7 @@ export interface PlanResponseData {
     isSensitive?: boolean;
   }>
 }
+
 
 export interface GetResourceInfoRequestData {
   type: string;
@@ -227,6 +234,11 @@ export interface SetVerbosityRequestData {
 }
 
 export interface EmptyResponseData {}
+
+export interface ApplyNoteRequestData {
+  message: string;
+  resourceType?: string;
+}
 
 export enum SpawnStatus {
   SUCCESS = 'success',

@@ -23,6 +23,7 @@ import PressKeyToContinueRequestDataSchema from './messages/press-key-to-continu
 import PressKeyToContinueResponseDataSchema from './messages/press-key-to-continue-response-data-schema.json' with {type: 'json'};
 import SetVerbosityRequestDataSchema from './messages/set-verbosity-request-data-schema.json' with {type: 'json'};
 import EmptyResponseDataSchema from './messages/empty-response-data-schema.json' with {type: 'json'};
+import ApplyNoteRequestDataSchema from './messages/apply-note-request-data-schema.json' with {type: 'json'};
 
 export {
   ConfigFileSchema,
@@ -50,6 +51,7 @@ export {
   PressKeyToContinueResponseDataSchema,
   SetVerbosityRequestDataSchema,
   EmptyResponseDataSchema,
+  ApplyNoteRequestDataSchema,
 }
 
 export * from './types/index.js';
