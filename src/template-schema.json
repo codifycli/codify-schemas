@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/template-schema.json",
+  "title": "Template Schema",
+  "description": "Includes the resources of a Codify template. The template's resources are merged into the plan at the position the template is declared.",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "All template configs are of the type template",
+      "type": "string",
+      "const": "template"
+    },
+    "name": {
+      "description": "Optional name. Required to reference the template in dependsOn when multiple templates are declared",
+      "type": "string",
+      "pattern": "^[\\w-]+$"
+    },
+    "source": {
+      "description": "The template to include. Either a registry template name (\"nvm\"), a profile scoped registry template name (\"@codify/nvm\"), or a Codify dashboard document id (uuid)",
+      "type": "string",
+      "pattern": "^(@[\\w.-]+\\/)?[\\w.-]+$"
+    },
+    "version": {
+      "description": "Exact semver version of the registry template. Defaults to the latest version",
+      "type": "string",
+      "pattern": "^([0-9]+)\\.([0-9]+)\\.([0-9]+)(?:-([0-9A-Za-z-]+(?:\\.[0-9A-Za-z-]+)*))?(?:\\+[0-9A-Za-z-]+)?$"
+    },
+    "dependsOn": {
+      "description": "Applied to every resource inside the template",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "os": {
+      "description": "Applied to every resource inside the template",
+      "type": "array",
+      "items": {
+        "enum": ["linux", "macOS", "windows"]
+      },
+      "uniqueItems": true
+    },
+    "distro": {
+      "description": "Applied to every resource inside the template",
+      "type": "array",
+      "items": {
+        "enum": [
+          "debian-based",
+          "rpm-based",
+          "arch",
+          "centos",
+          "debian",
+          "fedora",
+          "rhel",
+          "ubuntu",
+          "alpine",
+          "amzn",
+          "opensuse",
+          "sles",
+          "manjaro",
+          "linuxmint",
+          "pop",
+          "elementary",
+          "kali",
+          "gentoo",
+          "slackware"
+        ]
+      },
+      "uniqueItems": true
+    }
+  },
+  "additionalProperties": false,
+  "required": ["type", "source"]
+}

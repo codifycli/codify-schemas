@@ -1,6 +1,7 @@
 import ConfigFileSchema from './config-file-schema.json' with {type: 'json'}
 import ProjectSchema from './project-schema.json' with {type: 'json'}
 import ResourceSchema from './resource-schema.json' with {type: 'json'}
+import TemplateSchema from './template-schema.json' with {type: 'json'}
 import IpcMessageSchema from './ipc-message-schema.json' with {type: 'json'}
 import IpcMessageV2Schema from './ipc-message-schema-v2.json' with {type: 'json'}
 import ApplyRequestDataSchema from './messages/apply-request-data-schema.json' with {type: 'json'}
@@ -29,6 +30,7 @@ export {
   ConfigFileSchema,
   ProjectSchema,
   ResourceSchema,
+  TemplateSchema,
   IpcMessageSchema,
   IpcMessageV2Schema,
   ApplyRequestDataSchema,
