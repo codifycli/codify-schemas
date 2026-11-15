@@ -32,16 +32,6 @@ describe('Template schema tests', () => {
     expect(validator({ type: 'template', source: 'https://example.com/template' })).to.be.false;
   })
 
-  it('only accepts exact semver versions', () => {
-    const validator = ajv.compile(schema);
-    expect(validator({ type: 'template', source: 'nvm', version: '1.2.0' })).to.be.true;
-    expect(validator({ type: 'template', source: 'nvm', version: '1.2.0-beta.1' })).to.be.true;
-
-    expect(validator({ type: 'template', source: 'nvm', version: '^1.2.0' })).to.be.false;
-    expect(validator({ type: 'template', source: 'nvm', version: 'latest' })).to.be.false;
-    expect(validator({ type: 'template', source: 'nvm', version: 1 })).to.be.false;
-  })
-
   it('supports the common resource fields', () => {
     const validator = ajv.compile(schema);
     expect(validator({
@@ -60,12 +50,13 @@ describe('Template schema tests', () => {
   it('does not allow additional properties', () => {
     const validator = ajv.compile(schema);
     expect(validator({ type: 'template', source: 'nvm', plugins: {} })).to.be.false;
+    expect(validator({ type: 'template', source: 'nvm', version: '1.0.0' })).to.be.false;
     expect(validator({ type: 'template', source: 'nvm', global: '20' })).to.be.false;
   })
 
   it('is included in the schemastore schema', () => {
     const validator = ajv.compile(codifySchema);
-    expect(validator([{ type: 'template', source: 'nvm', version: '1.0.0' }])).to.be.true;
+    expect(validator([{ type: 'template', source: '@codify/nvm' }])).to.be.true;
     expect(validator([{ type: 'template' }])).to.be.false;
   })
 })

@@ -32,8 +32,6 @@ export interface TemplateConfig extends Config {
   type: 'template';
   // Registry template name ("nvm"), profile scoped name ("@codify/nvm"), or a dashboard document id (uuid)
   source: string;
-  // Exact semver version of a registry template. Defaults to the latest version
-  version?: string;
   name?: string;
   dependsOn?: string[];
   os?: Array<ResourceOs>;
