@@ -39,6 +39,10 @@
             "items": {
               "type": "string"
             }
+          },
+          "supersededBy": {
+            "type": "string",
+            "description": "The type of another resource that manages the same system state as this one (ex: alias is superseded by aliases). This resource is skipped when both are imported automatically (init / import all)."
           }
 
         },

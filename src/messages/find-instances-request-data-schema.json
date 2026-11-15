@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/find-instances-request-data-schema.json",
+  "title": "Find Instances Request Schema Data",
+  "description": "Find every instance of a resource that currently exists on the system. Unlike import, this does not produce configs to be saved; it is used to discover what exists (for example to let the user pick which instance to destroy).",
+  "type": "object",
+  "properties": {
+    "core": {
+      "$ref": "resource-schema.json"
+    }
+  },
+  "required": ["core"]
+}
