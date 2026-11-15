@@ -184,6 +184,15 @@ export interface ImportResponseData {
   result: Array<ResourceJson>;
 }
 
+export interface FindInstancesRequestData {
+  core: ResourceConfig;
+}
+
+export interface FindInstancesResponseData {
+  request: FindInstancesRequestData;
+  result: Array<ResourceJson>;
+}
+
 export interface ApplyRequestData {
   planId?: string;
   plan?: {
@@ -207,6 +216,12 @@ export interface ResourceDefinition {
   operatingSystems?: OS[];
   linuxDistros?: LinuxDistro[];
   sensitiveParameters?: string[];
+  /**
+   * The type of another resource that manages the same system state as this one (ex: `alias` is superseded by
+   * `aliases`). When both are imported automatically (init / import all), this resource is skipped to avoid
+   * importing the same state twice. It can still be imported, planned and destroyed directly.
+   */
+  supersededBy?: string;
 }
 
 export interface InitializeRequestData {

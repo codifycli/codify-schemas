@@ -39,4 +39,20 @@ describe('Get resources response data schema', () => {
     })).to.be.false;
   });
 
+  it('accepts supersededBy', () => {
+    const validate = ajv.compile(schema);
+    expect(validate({
+      resourceDefinitions: [
+        { type: 'alias', dependencies: [], supersededBy: 'aliases' },
+        { type: 'aliases', dependencies: [] },
+      ]
+    })).to.be.true;
+
+    expect(validate({
+      resourceDefinitions: [
+        { type: 'alias', dependencies: [], supersededBy: ['aliases'] },
+      ]
+    })).to.be.false;
+  });
+
 })

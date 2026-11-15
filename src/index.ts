@@ -10,6 +10,8 @@ import GetResourceInfoRequestDataSchema from './messages/get-resource-info-reque
 import GetResourceInfoResponseDataSchema from './messages/get-resource-info-response-data-schema.json' with {type: 'json'}
 import ImportRequestDataSchema from './messages/import-request-data-schema.json' with {type: 'json'}
 import ImportResponseDataSchema from './messages/import-response-data-schema.json' with {type: 'json'}
+import FindInstancesRequestDataSchema from './messages/find-instances-request-data-schema.json' with {type: 'json'}
+import FindInstancesResponseDataSchema from './messages/find-instances-response-data-schema.json' with {type: 'json'}
 import MatchRequestDataSchema from './messages/match-request-data-schema.json' with {type: 'json'}
 import MatchResponseDataSchema from './messages/match-response-data-schema.json' with {type: 'json'}
 import PlanRequestDataSchema from './messages/plan-request-data-schema.json' with {type: 'json'}
@@ -39,6 +41,8 @@ export {
   GetResourceInfoResponseDataSchema,
   ImportRequestDataSchema,
   ImportResponseDataSchema,
+  FindInstancesRequestDataSchema,
+  FindInstancesResponseDataSchema,
   MatchRequestDataSchema,
   MatchResponseDataSchema,
   PlanRequestDataSchema,

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/find-instances-response-data-schema.json",
+  "title": "Find Instances Response Schema Data",
+  "type": "object",
+  "properties": {
+    "request": {
+      "type": "object",
+      "properties": {
+        "core": {
+          "$ref": "resource-schema.json"
+        }
+      }
+    },
+    "result": {
+      "type": "array",
+      "description": "Every instance of the resource found on the system. Empty if none were found or the resource does not support discovery.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "core": {
+            "$ref": "resource-schema.json"
+          },
+          "parameters": {
+            "type": "object"
+          }
+        },
+        "required": ["core", "parameters"]
+      }
+    }
+  },
+  "required": ["request", "result"]
+}
