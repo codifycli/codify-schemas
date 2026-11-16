@@ -1,64 +1,66 @@
-import ConfigFileSchema from './config-file-schema.json' with {type: 'json'}
-import ProjectSchema from './project-schema.json' with {type: 'json'}
-import ResourceSchema from './resource-schema.json' with {type: 'json'}
-import TemplateSchema from './template-schema.json' with {type: 'json'}
-import IpcMessageSchema from './ipc-message-schema.json' with {type: 'json'}
-import IpcMessageV2Schema from './ipc-message-schema-v2.json' with {type: 'json'}
-import ApplyRequestDataSchema from './messages/apply-request-data-schema.json' with {type: 'json'}
-import ErrorResponseDataSchema from './messages/error-response-data-schema.json' with {type: 'json'}
-import GetResourceInfoRequestDataSchema from './messages/get-resource-info-request-data-schema.json' with {type: 'json'}
-import GetResourceInfoResponseDataSchema from './messages/get-resource-info-response-data-schema.json' with {type: 'json'}
-import ImportRequestDataSchema from './messages/import-request-data-schema.json' with {type: 'json'}
-import ImportResponseDataSchema from './messages/import-response-data-schema.json' with {type: 'json'}
-import FindInstancesRequestDataSchema from './messages/find-instances-request-data-schema.json' with {type: 'json'}
-import FindInstancesResponseDataSchema from './messages/find-instances-response-data-schema.json' with {type: 'json'}
-import MatchRequestDataSchema from './messages/match-request-data-schema.json' with {type: 'json'}
-import MatchResponseDataSchema from './messages/match-response-data-schema.json' with {type: 'json'}
-import PlanRequestDataSchema from './messages/plan-request-data-schema.json' with {type: 'json'}
-import PlanResponseDataSchema from './messages/plan-response-data-schema.json' with {type: 'json'}
-import ValidateRequestDataSchema from './messages/validate-request-data-schema.json' with {type: 'json'}
-import ValidateResponseDataSchema from './messages/validate-response-data-schema.json' with {type: 'json'}
-import InitializeRequestDataSchema from './messages/initialize-request-data-schema.json' with {type: 'json'}
-import InitializeResponseDataSchema from './messages/initialize-response-data-schema.json' with {type: 'json'}
-import CommandRequestDataSchema from './messages/command-request-data-schema.json' with {type: 'json'};
-import CommandRequestResponseDataSchema from './messages/command-response-data-schema.json' with {type: 'json'};
-import PressKeyToContinueRequestDataSchema from './messages/press-key-to-continue-request-data-schema.json' with {type: 'json'};
-import PressKeyToContinueResponseDataSchema from './messages/press-key-to-continue-response-data-schema.json' with {type: 'json'};
-import SetVerbosityRequestDataSchema from './messages/set-verbosity-request-data-schema.json' with {type: 'json'};
-import EmptyResponseDataSchema from './messages/empty-response-data-schema.json' with {type: 'json'};
-import ApplyNoteRequestDataSchema from './messages/apply-note-request-data-schema.json' with {type: 'json'};
+import type { SchemaObject } from 'ajv';
+import ConfigFileSchemaJson from './config-file-schema.json' with {type: 'json'};
+import ProjectSchemaJson from './project-schema.json' with {type: 'json'};
+import ResourceSchemaJson from './resource-schema.json' with {type: 'json'};
+import TemplateSchemaJson from './template-schema.json' with {type: 'json'};
+import IpcMessageSchemaJson from './ipc-message-schema.json' with {type: 'json'};
+import IpcMessageV2SchemaJson from './ipc-message-schema-v2.json' with {type: 'json'};
+import ApplyRequestDataSchemaJson from './messages/apply-request-data-schema.json' with {type: 'json'};
+import ErrorResponseDataSchemaJson from './messages/error-response-data-schema.json' with {type: 'json'};
+import GetResourceInfoRequestDataSchemaJson from './messages/get-resource-info-request-data-schema.json' with {type: 'json'};
+import GetResourceInfoResponseDataSchemaJson from './messages/get-resource-info-response-data-schema.json' with {type: 'json'};
+import ImportRequestDataSchemaJson from './messages/import-request-data-schema.json' with {type: 'json'};
+import ImportResponseDataSchemaJson from './messages/import-response-data-schema.json' with {type: 'json'};
+import FindInstancesRequestDataSchemaJson from './messages/find-instances-request-data-schema.json' with {type: 'json'};
+import FindInstancesResponseDataSchemaJson from './messages/find-instances-response-data-schema.json' with {type: 'json'};
+import MatchRequestDataSchemaJson from './messages/match-request-data-schema.json' with {type: 'json'};
+import MatchResponseDataSchemaJson from './messages/match-response-data-schema.json' with {type: 'json'};
+import PlanRequestDataSchemaJson from './messages/plan-request-data-schema.json' with {type: 'json'};
+import PlanResponseDataSchemaJson from './messages/plan-response-data-schema.json' with {type: 'json'};
+import ValidateRequestDataSchemaJson from './messages/validate-request-data-schema.json' with {type: 'json'};
+import ValidateResponseDataSchemaJson from './messages/validate-response-data-schema.json' with {type: 'json'};
+import InitializeRequestDataSchemaJson from './messages/initialize-request-data-schema.json' with {type: 'json'};
+import InitializeResponseDataSchemaJson from './messages/initialize-response-data-schema.json' with {type: 'json'};
+import CommandRequestDataSchemaJson from './messages/command-request-data-schema.json' with {type: 'json'};
+import CommandRequestResponseDataSchemaJson from './messages/command-response-data-schema.json' with {type: 'json'};
+import PressKeyToContinueRequestDataSchemaJson from './messages/press-key-to-continue-request-data-schema.json' with {type: 'json'};
+import PressKeyToContinueResponseDataSchemaJson from './messages/press-key-to-continue-response-data-schema.json' with {type: 'json'};
+import SetVerbosityRequestDataSchemaJson from './messages/set-verbosity-request-data-schema.json' with {type: 'json'};
+import EmptyResponseDataSchemaJson from './messages/empty-response-data-schema.json' with {type: 'json'};
+import ApplyNoteRequestDataSchemaJson from './messages/apply-note-request-data-schema.json' with {type: 'json'};
 
-export {
-  ConfigFileSchema,
-  ProjectSchema,
-  ResourceSchema,
-  TemplateSchema,
-  IpcMessageSchema,
-  IpcMessageV2Schema,
-  ApplyRequestDataSchema,
-  ErrorResponseDataSchema,
-  GetResourceInfoRequestDataSchema,
-  GetResourceInfoResponseDataSchema,
-  ImportRequestDataSchema,
-  ImportResponseDataSchema,
-  FindInstancesRequestDataSchema,
-  FindInstancesResponseDataSchema,
-  MatchRequestDataSchema,
-  MatchResponseDataSchema,
-  PlanRequestDataSchema,
-  PlanResponseDataSchema,
-  ValidateRequestDataSchema,
-  ValidateResponseDataSchema,
-  InitializeRequestDataSchema,
-  InitializeResponseDataSchema,
-  CommandRequestDataSchema,
-  CommandRequestResponseDataSchema,
-  PressKeyToContinueRequestDataSchema,
-  PressKeyToContinueResponseDataSchema,
-  SetVerbosityRequestDataSchema,
-  EmptyResponseDataSchema,
-  ApplyNoteRequestDataSchema,
-}
+// Declared with an explicit type instead of re-exporting the JSON imports directly. tsc drops the
+// `with {type: 'json'}` attribute when it emits declarations, so re-exported JSON imports produce a
+// dist/index.d.ts that fails to type-check in consumers on TS >= 5.9 with module NodeNext (TS1543).
+export const ConfigFileSchema: SchemaObject = ConfigFileSchemaJson;
+export const ProjectSchema: SchemaObject = ProjectSchemaJson;
+export const ResourceSchema: SchemaObject = ResourceSchemaJson;
+export const TemplateSchema: SchemaObject = TemplateSchemaJson;
+export const IpcMessageSchema: SchemaObject = IpcMessageSchemaJson;
+export const IpcMessageV2Schema: SchemaObject = IpcMessageV2SchemaJson;
+export const ApplyRequestDataSchema: SchemaObject = ApplyRequestDataSchemaJson;
+export const ErrorResponseDataSchema: SchemaObject = ErrorResponseDataSchemaJson;
+export const GetResourceInfoRequestDataSchema: SchemaObject = GetResourceInfoRequestDataSchemaJson;
+export const GetResourceInfoResponseDataSchema: SchemaObject = GetResourceInfoResponseDataSchemaJson;
+export const ImportRequestDataSchema: SchemaObject = ImportRequestDataSchemaJson;
+export const ImportResponseDataSchema: SchemaObject = ImportResponseDataSchemaJson;
+export const FindInstancesRequestDataSchema: SchemaObject = FindInstancesRequestDataSchemaJson;
+export const FindInstancesResponseDataSchema: SchemaObject = FindInstancesResponseDataSchemaJson;
+export const MatchRequestDataSchema: SchemaObject = MatchRequestDataSchemaJson;
+export const MatchResponseDataSchema: SchemaObject = MatchResponseDataSchemaJson;
+export const PlanRequestDataSchema: SchemaObject = PlanRequestDataSchemaJson;
+export const PlanResponseDataSchema: SchemaObject = PlanResponseDataSchemaJson;
+export const ValidateRequestDataSchema: SchemaObject = ValidateRequestDataSchemaJson;
+export const ValidateResponseDataSchema: SchemaObject = ValidateResponseDataSchemaJson;
+export const InitializeRequestDataSchema: SchemaObject = InitializeRequestDataSchemaJson;
+export const InitializeResponseDataSchema: SchemaObject = InitializeResponseDataSchemaJson;
+export const CommandRequestDataSchema: SchemaObject = CommandRequestDataSchemaJson;
+export const CommandRequestResponseDataSchema: SchemaObject = CommandRequestResponseDataSchemaJson;
+export const PressKeyToContinueRequestDataSchema: SchemaObject = PressKeyToContinueRequestDataSchemaJson;
+export const PressKeyToContinueResponseDataSchema: SchemaObject = PressKeyToContinueResponseDataSchemaJson;
+export const SetVerbosityRequestDataSchema: SchemaObject = SetVerbosityRequestDataSchemaJson;
+export const EmptyResponseDataSchema: SchemaObject = EmptyResponseDataSchemaJson;
+export const ApplyNoteRequestDataSchema: SchemaObject = ApplyNoteRequestDataSchemaJson;
 
 export * from './types/index.js';
 export * from './messages/commands.js';
