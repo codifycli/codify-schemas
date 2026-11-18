@@ -1,6 +1,6 @@
 {
   "name": "@codifycli/schemas",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "JSON Schemas and types that govern the message format and Codify config formats for Codify",
   "type": "module",
   "main": "dist/index.js",
@@ -8,6 +8,7 @@
   "scripts": {
     "test": "vitest",
     "prepublishOnly": "tsc",
+    "prepare": "tsc",
     "script:upload-plugin": "tsx scripts/upload-resources.ts"
   },
   "keywords": [],

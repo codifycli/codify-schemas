@@ -54,7 +54,171 @@
         ]
       },
       "uniqueItems": true
+    },
+    "when": {
+      "description": "Only include this resource if the condition matches. Keys are variable names and every key must match. Use \"any\" for alternatives. Ex: { \"siteType\": \"blog\", \"tools\": [\"docker\", \"podman\"] }",
+      "type": "object",
+      "properties": {
+        "any": {
+          "description": "At least one of the conditions must match",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^(?!any$)[\\w-]+$": {
+                "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "not": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                }
+                              ]
+                            },
+                            "minItems": 1
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "not"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          },
+          "minItems": 1
+        }
+      },
+      "patternProperties": {
+        "^(?!any$)[\\w-]+$": {
+          "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            {
+              "type": "object",
+              "properties": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "not"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
     }
   },
-  "required": ["type"]
+  "required": [
+    "type"
+  ]
 }

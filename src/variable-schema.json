@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://www.codifycli.com/variable-schema.json",
+  "$comment": "https://codifycli.com/docs/core-resources/variable",
+  "title": "Variable Schema",
+  "description": "Declares a variable. Its value is asked when running and can be used in resources with ${{ name }} and in when conditions",
+  "type": "object",
+  "properties": {
+    "type": {
+      "description": "All variable configs are of the type variable",
+      "type": "string",
+      "const": "variable"
+    },
+    "name": {
+      "description": "The name of the variable. Reference it with ${{ name }}. Variables of a template are scoped to the template",
+      "type": "string",
+      "pattern": "^(?!any$)[\\w-]+$"
+    },
+    "valueType": {
+      "description": "The type of the value. Defaults to text",
+      "type": "string",
+      "enum": [
+        "text",
+        "number",
+        "boolean",
+        "enum",
+        "multiEnum"
+      ]
+    },
+    "description": {
+      "description": "Help text shown when asking for the value",
+      "type": "string"
+    },
+    "options": {
+      "description": "The allowed values of an enum or multiEnum variable",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "default": {
+      "description": "The default value. Can reference other variables (\"${{ projectName }}-api\"). Variables without a default are required",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "number"
+        },
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "sensitive": {
+      "description": "Hide the value when asking for it and in the output",
+      "type": "boolean"
+    },
+    "when": {
+      "description": "Only ask for this variable if the condition matches. Otherwise the variable has no value",
+      "type": "object",
+      "properties": {
+        "any": {
+          "description": "At least one of the conditions must match",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "patternProperties": {
+              "^(?!any$)[\\w-]+$": {
+                "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "not": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                }
+                              ]
+                            },
+                            "minItems": 1
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "not"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          },
+          "minItems": 1
+        }
+      },
+      "patternProperties": {
+        "^(?!any$)[\\w-]+$": {
+          "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            },
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  }
+                ]
+              },
+              "minItems": 1
+            },
+            {
+              "type": "object",
+              "properties": {
+                "not": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "number"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          }
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "not"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "minProperties": 1
+    }
+  },
+  "required": [
+    "type",
+    "name"
+  ],
+  "additionalProperties": false,
+  "if": {
+    "properties": {
+      "valueType": {
+        "enum": [
+          "enum",
+          "multiEnum"
+        ]
+      }
+    },
+    "required": [
+      "valueType"
+    ]
+  },
+  "then": {
+    "properties": {
+      "options": {
+        "type": "array",
+        "minItems": 1
+      }
+    },
+    "required": [
+      "options"
+    ]
+  }
+}

@@ -3,6 +3,7 @@ import ConfigFileSchemaJson from './config-file-schema.json' with {type: 'json'}
 import ProjectSchemaJson from './project-schema.json' with {type: 'json'};
 import ResourceSchemaJson from './resource-schema.json' with {type: 'json'};
 import TemplateSchemaJson from './template-schema.json' with {type: 'json'};
+import VariableSchemaJson from './variable-schema.json' with {type: 'json'};
 import IpcMessageSchemaJson from './ipc-message-schema.json' with {type: 'json'};
 import IpcMessageV2SchemaJson from './ipc-message-schema-v2.json' with {type: 'json'};
 import ApplyRequestDataSchemaJson from './messages/apply-request-data-schema.json' with {type: 'json'};
@@ -36,6 +37,7 @@ export const ConfigFileSchema: SchemaObject = ConfigFileSchemaJson;
 export const ProjectSchema: SchemaObject = ProjectSchemaJson;
 export const ResourceSchema: SchemaObject = ResourceSchemaJson;
 export const TemplateSchema: SchemaObject = TemplateSchemaJson;
+export const VariableSchema: SchemaObject = VariableSchemaJson;
 export const IpcMessageSchema: SchemaObject = IpcMessageSchemaJson;
 export const IpcMessageV2Schema: SchemaObject = IpcMessageV2SchemaJson;
 export const ApplyRequestDataSchema: SchemaObject = ApplyRequestDataSchemaJson;
