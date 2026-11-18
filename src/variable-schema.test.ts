@@ -38,7 +38,8 @@ describe('Variable schema tests', () => {
       valueType: 'enum',
       options: ['blog', 'landing-page', 'portfolio'],
       default: 'blog',
-      description: 'What kind of site are you building?',
+      label: 'What kind of site are you building?',
+      description: 'Each kind comes with its own tools and templates',
       when: { experience: 'advanced' },
     })).to.be.true;
 
@@ -47,6 +48,13 @@ describe('Variable schema tests', () => {
     expect(validator({ type: 'variable', name: 'token', sensitive: true })).to.be.true;
     expect(validator({ type: 'variable', name: 'tools', valueType: 'multiEnum', options: ['docker', 'kubectl'], default: ['docker'] })).to.be.true;
     expect(validator({ type: 'variable', name: 'apiName', default: '${{ projectName }}-api' })).to.be.true;
+  })
+
+  it('accepts a label with any text (the name stays the identifier)', () => {
+    const validator = ajv.compile(schema);
+    expect(validator({ type: 'variable', name: 'port', label: 'Which port should the dev server use? (optional)' })).to.be.true;
+    expect(validator({ type: 'variable', name: 'port', label: '' })).to.be.false;
+    expect(validator({ type: 'variable', name: 'port', label: 3 })).to.be.false;
   })
 
   it('requires options for enum and multiEnum variables', () => {
@@ -60,7 +68,7 @@ describe('Variable schema tests', () => {
   it('rejects unknown value types and fields', () => {
     const validator = ajv.compile(schema);
     expect(validator({ type: 'variable', name: 'a', valueType: 'string' })).to.be.false;
-    expect(validator({ type: 'variable', name: 'a', label: 'A' })).to.be.false;
+    expect(validator({ type: 'variable', name: 'a', title: 'A' })).to.be.false;
   })
 
   it('is included in the schemastore schema', () => {

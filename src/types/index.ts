@@ -63,6 +63,10 @@ export interface VariableConfig extends Config {
   name: string;
   // Defaults to text
   valueType?: VariableValueType;
+  // Short question shown when asking for the value. Defaults to the name. Can be reworded freely (the name is the
+  // identifier used by references).
+  label?: string;
+  // Longer help text shown under the label
   description?: string;
   // The allowed values of enum and multiEnum variables
   options?: string[];

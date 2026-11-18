@@ -340,8 +340,13 @@
               "multiEnum"
             ]
           },
+          "label": {
+            "description": "Short question shown when asking for the value. Ex: \"What kind of site are you building?\". Defaults to the name. Can be reworded without breaking the references to the variable",
+            "type": "string",
+            "minLength": 1
+          },
           "description": {
-            "description": "Help text shown when asking for the value",
+            "description": "Longer help text shown under the label when asking for the value",
             "type": "string"
           },
           "options": {
