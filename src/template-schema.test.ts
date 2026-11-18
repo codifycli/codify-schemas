@@ -57,6 +57,20 @@ describe('Template schema tests', () => {
     expect(validator({ type: 'template', source: 'nvm', os: ['solaris'] })).to.be.false;
   })
 
+  it('supports when and variables', () => {
+    const validator = ajv.compile(schema);
+    expect(validator({
+      type: 'template',
+      source: '@codify/astro-blog',
+      when: { siteType: 'blog' },
+      variables: { projectName: '${{ projectName }}', port: 3000, useTs: true, tools: ['docker'] },
+    })).to.be.true;
+
+    expect(validator({ type: 'template', source: 'nvm', when: {} })).to.be.false;
+    expect(validator({ type: 'template', source: 'nvm', variables: { 'project name': 'a' } })).to.be.false;
+    expect(validator({ type: 'template', source: 'nvm', variables: { projectName: { a: 1 } } })).to.be.false;
+  })
+
   it('does not allow additional properties', () => {
     const validator = ajv.compile(schema);
     expect(validator({ type: 'template', source: 'nvm', plugins: {} })).to.be.false;

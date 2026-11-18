@@ -53,6 +53,8 @@ src/
 ├── config-file-schema.json     # Top-level config file format
 ├── project-schema.json         # "project" block definition
 ├── resource-schema.json        # Base resource configuration
+├── template-schema.json        # "template" block definition
+├── variable-schema.json        # "variable" block definition
 ├── ipc-message-schema.json     # V1 message wrapper
 ├── ipc-message-schema-v2.json  # V2 message wrapper (adds requestId)
 └── index.ts                    # Main exports
@@ -63,7 +65,16 @@ src/
 **Configuration Schemas:**
 - `config-file-schema.json` - Top-level array of config blocks with `type` field
 - `project-schema.json` - Special "project" block with version, plugins, description
-- `resource-schema.json` - Base schema for all resources (type, name, dependsOn, os)
+- `resource-schema.json` - Base schema for all resources (type, name, dependsOn, os, distro, when)
+- `template-schema.json` - Special "template" block (source, version, variables, when + the common resource fields)
+- `variable-schema.json` - Special "variable" block (name, valueType, description, options, default, sensitive, when)
+
+### Conditions (`when`)
+Resources, templates and variables accept `when`. Keys are variable names and every key must match. A value means
+equals (multiEnum variables: includes), a list means one of (multiEnum: includes one of), `{ "not": value | list }`
+is the opposite. `any` is a list of conditions where at least one must match (not nestable, so `any` is a reserved
+variable name). The condition is inlined in each schema (no `$ref`) because plugins merge `ResourceSchema` into every
+resource schema of the schemastore file.
 
 **Message Schemas (src/messages/):**
 - Initialize: Plugin startup, capability discovery

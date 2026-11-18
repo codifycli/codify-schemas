@@ -21,11 +21,56 @@ export enum ResourceOs {
   WINDOWS = 'windows',
 }
 
+/** A single value or a list of values (multiEnum variables and lists in conditions) */
+export type VariableValue = string | number | boolean | Array<string | number | boolean>;
+
+/**
+ * How a single variable is matched in a condition:
+ *   - a value: the variable equals it (multiEnum variables: includes it)
+ *   - a list: the variable equals one of the values (multiEnum variables: includes one of them)
+ *   - { not: value | list }: the opposite
+ */
+export type VariableMatch = VariableValue | { not: VariableValue };
+
+/** Every key must match. The keys are variable names. */
+export type FlatCondition = Record<string, VariableMatch>;
+
+/**
+ * The `when` condition of a resource, template or variable. Every key must match. The keys are variable names, except
+ * `any`: a list of conditions where at least one must match.
+ */
+export type Condition = { any?: FlatCondition[] } & { [variable: string]: VariableMatch | FlatCondition[] | undefined };
+
 export interface ResourceConfig extends Config {
   name?: string;
   dependsOn?: string[];
   os?: Array<ResourceOs>;
-  distro?: Array<LinuxDistro>
+  distro?: Array<LinuxDistro>;
+  when?: Condition;
+}
+
+export enum VariableValueType {
+  TEXT = 'text',
+  NUMBER = 'number',
+  BOOLEAN = 'boolean',
+  ENUM = 'enum',
+  MULTI_ENUM = 'multiEnum',
+}
+
+export interface VariableConfig extends Config {
+  type: 'variable';
+  // Referenced with ${{ name }}. Variables of a template are scoped to the template
+  name: string;
+  // Defaults to text
+  valueType?: VariableValueType;
+  description?: string;
+  // The allowed values of enum and multiEnum variables
+  options?: string[];
+  // Can reference other variables. Variables without a default are required
+  default?: VariableValue;
+  sensitive?: boolean;
+  // Only ask for the variable if the condition matches
+  when?: Condition;
 }
 
 export interface TemplateConfig extends Config {
@@ -38,6 +83,10 @@ export interface TemplateConfig extends Config {
   dependsOn?: string[];
   os?: Array<ResourceOs>;
   distro?: Array<LinuxDistro>;
+  // Only include the template if the condition matches
+  when?: Condition;
+  // Values for the variables of the template
+  variables?: Record<string, VariableValue>;
 }
 
 export enum MessageStatus {
