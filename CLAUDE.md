@@ -67,7 +67,7 @@ src/
 - `project-schema.json` - Special "project" block with version, plugins, description
 - `resource-schema.json` - Base schema for all resources (type, name, dependsOn, os, distro, when)
 - `template-schema.json` - Special "template" block (source, version, variables, when + the common resource fields)
-- `variable-schema.json` - Special "variable" block (name, valueType, description, options, default, sensitive, when)
+- `variable-schema.json` - Special "variable" block (name, valueType, label, description, options, default, sensitive, when). `name` is the identifier used by references and `--var` (`[\w-]+`); `label` is the display text and can be reworded freely
 
 ### Conditions (`when`)
 Resources, templates and variables accept `when`. Keys are variable names and every key must match. A value means
