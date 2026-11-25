@@ -55,6 +55,7 @@ src/
 ├── resource-schema.json        # Base resource configuration
 ├── template-schema.json        # "template" block definition
 ├── variable-schema.json        # "variable" block definition
+├── notice-schema.json          # "notice" block definition
 ├── ipc-message-schema.json     # V1 message wrapper
 ├── ipc-message-schema-v2.json  # V2 message wrapper (adds requestId)
 └── index.ts                    # Main exports
@@ -68,9 +69,10 @@ src/
 - `resource-schema.json` - Base schema for all resources (type, name, dependsOn, os, distro, when)
 - `template-schema.json` - Special "template" block (source, version, variables, when + the common resource fields)
 - `variable-schema.json` - Special "variable" block (name, valueType, label, description, options, default, sensitive, when). `name` is the identifier used by references and `--var` (`[\w-]+`); `label` is the display text and can be reworded freely
+- `notice-schema.json` - Special "notice" block: a message shown to the user (getting started steps after a template, warnings, a summary). `message` (required), `title`, `level` (info | warning | success), `stage` (apply: after the apply, default | plan: with the plan, before the confirmation), `show` (onChange: default, only if a resource it depends on changed and none failed | always), `dependsOn`, `os`, `distro`, `when`. `show` is not allowed with `stage: plan`. It is never sent to plugins
 
 ### Conditions (`when`)
-Resources, templates and variables accept `when`. Keys are variable names and every key must match. A value means
+Resources, templates, variables and notices accept `when`. Keys are variable names and every key must match. A value means
 equals (multiEnum variables: includes), a list means one of (multiEnum: includes one of), `{ "not": value | list }`
 is the opposite. `any` is a list of conditions where at least one must match (not nestable, so `any` is a reserved
 variable name). The condition is inlined in each schema (no `$ref`) because plugins merge `ResourceSchema` into every
