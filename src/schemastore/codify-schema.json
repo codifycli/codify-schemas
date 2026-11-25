@@ -586,6 +586,288 @@
         }
       },
       {
+        "$comment": "https://codifycli.com/docs/core-resources/notice",
+        "description": "Shows a message to the user. Ex: how to get started after a template is installed, a warning about what not to do, or a summary of what was installed. Can reference variables with ${{ name }}",
+        "type": "object",
+        "properties": {
+          "type": {
+            "description": "All notice configs are of the type notice",
+            "type": "string",
+            "const": "notice"
+          },
+          "name": {
+            "description": "Optional name of the notice",
+            "type": "string",
+            "pattern": "^[\\w-]+$"
+          },
+          "title": {
+            "description": "Short heading shown above the message. Ex: \"Getting started with your Astro site\"",
+            "type": "string",
+            "minLength": 1
+          },
+          "message": {
+            "description": "The text to show. Use \\n for new lines and `backticks` for commands. Can reference variables with ${{ name }}",
+            "type": "string",
+            "minLength": 1
+          },
+          "level": {
+            "description": "How the notice is shown. Defaults to info",
+            "type": "string",
+            "enum": [
+              "info",
+              "warning",
+              "success"
+            ]
+          },
+          "stage": {
+            "description": "When the notice is shown. apply (default): after the apply completes. plan: with the plan, before asking to continue",
+            "type": "string",
+            "enum": [
+              "apply",
+              "plan"
+            ]
+          },
+          "show": {
+            "description": "Only for stage apply. onChange (default): only if a resource the notice depends on was changed, and none of them failed. always: also when there are no changes",
+            "type": "string",
+            "enum": [
+              "onChange",
+              "always"
+            ]
+          },
+          "dependsOn": {
+            "description": "The resources or templates (\"template.<name>\") the notice is about. Defaults to the resources of the template it is declared in, or to every resource when declared in the project",
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "os": {
+            "description": "Only show the notice on these operating systems",
+            "type": "array",
+            "items": {
+              "enum": [
+                "linux",
+                "macOS",
+                "windows"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "distro": {
+            "description": "Only show the notice on these Linux distributions",
+            "type": "array",
+            "items": {
+              "enum": [
+                "debian-based",
+                "rpm-based",
+                "arch",
+                "centos",
+                "debian",
+                "fedora",
+                "rhel",
+                "ubuntu",
+                "alpine",
+                "amzn",
+                "opensuse",
+                "sles",
+                "manjaro",
+                "linuxmint",
+                "pop",
+                "elementary",
+                "kali",
+                "gentoo",
+                "slackware"
+              ]
+            },
+            "uniqueItems": true
+          },
+          "when": {
+            "description": "Only show the notice if the condition matches. Keys are variable names and every key must match. Use \"any\" for alternatives",
+            "type": "object",
+            "properties": {
+              "any": {
+                "description": "At least one of the conditions must match",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "patternProperties": {
+                    "^(?!any$)[\\w-]+$": {
+                      "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        },
+                        {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "number"
+                              },
+                              {
+                                "type": "boolean"
+                              }
+                            ]
+                          },
+                          "minItems": 1
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "not": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "anyOf": [
+                                      {
+                                        "type": "string"
+                                      },
+                                      {
+                                        "type": "number"
+                                      },
+                                      {
+                                        "type": "boolean"
+                                      }
+                                    ]
+                                  },
+                                  "minItems": 1
+                                }
+                              ]
+                            }
+                          },
+                          "required": [
+                            "not"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    }
+                  },
+                  "additionalProperties": false,
+                  "minProperties": 1
+                },
+                "minItems": 1
+              }
+            },
+            "patternProperties": {
+              "^(?!any$)[\\w-]+$": {
+                "description": "A value: the variable must equal it (multiEnum variables: must include it). A list: the variable must equal one of the values (multiEnum variables: must include one of them). {\"not\": value or list}: the opposite.",
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "boolean"
+                  },
+                  {
+                    "type": "array",
+                    "items": {
+                      "anyOf": [
+                        {
+                          "type": "string"
+                        },
+                        {
+                          "type": "number"
+                        },
+                        {
+                          "type": "boolean"
+                        }
+                      ]
+                    },
+                    "minItems": 1
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "not": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "number"
+                          },
+                          {
+                            "type": "boolean"
+                          },
+                          {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "boolean"
+                                }
+                              ]
+                            },
+                            "minItems": 1
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "not"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "minProperties": 1
+          }
+        },
+        "required": [
+          "type",
+          "message"
+        ],
+        "additionalProperties": false,
+        "if": {
+          "properties": {
+            "stage": {
+              "const": "plan"
+            }
+          },
+          "required": [
+            "stage"
+          ]
+        },
+        "then": {
+          "properties": {
+            "show": false
+          }
+        }
+      },
+      {
         "$comment": "https://codifycli.com/docs/resources/git/git/",
         "description": "Set and manage global git settings (email and username)",
         "type": "object",

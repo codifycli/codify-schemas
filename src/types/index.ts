@@ -93,6 +93,48 @@ export interface TemplateConfig extends Config {
   variables?: Record<string, VariableValue>;
 }
 
+export enum NoticeLevel {
+  INFO = 'info',
+  WARNING = 'warning',
+  SUCCESS = 'success',
+}
+
+export enum NoticeStage {
+  // After the apply completes (default)
+  APPLY = 'apply',
+  // With the plan, before asking to continue
+  PLAN = 'plan',
+}
+
+export enum NoticeShow {
+  // Only if a resource the notice depends on was changed and none of them failed (default)
+  ON_CHANGE = 'onChange',
+  // Also when there are no changes
+  ALWAYS = 'always',
+}
+
+export interface NoticeConfig extends Config {
+  type: 'notice';
+  name?: string;
+  // Short heading shown above the message
+  title?: string;
+  // Can reference variables with ${{ name }}
+  message: string;
+  // Defaults to info
+  level?: NoticeLevel;
+  // Defaults to apply
+  stage?: NoticeStage;
+  // Only for stage apply. Defaults to onChange
+  show?: NoticeShow;
+  // The resources or templates ("template.<name>") the notice is about. Defaults to the resources of the template it
+  // is declared in, or to every resource when declared in the project
+  dependsOn?: string[];
+  os?: Array<ResourceOs>;
+  distro?: Array<LinuxDistro>;
+  // Only show the notice if the condition matches
+  when?: Condition;
+}
+
 export enum MessageStatus {
   SUCCESS = 'success',
   ERROR = 'error',
