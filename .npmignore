@@ -1,7 +1,0 @@
-**/.DS_Store
-*-debug.log
-*-error.log
-/.idea
-/.nyc_output
-/yarn.lock
-oclif.manifest.json
