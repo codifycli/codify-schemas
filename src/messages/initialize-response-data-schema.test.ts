@@ -55,4 +55,21 @@ describe('Get resources response data schema', () => {
     })).to.be.false;
   });
 
+  it('accepts requires', () => {
+    const validate = ajv.compile(schema);
+    expect(validate({
+      resourceDefinitions: [
+        { type: 'cursor', dependencies: [], requires: ['homebrew'] },
+        { type: 'homebrew', dependencies: [], requires: [] },
+        { type: 'alias', dependencies: [] },
+      ]
+    })).to.be.true;
+
+    expect(validate({
+      resourceDefinitions: [
+        { type: 'cursor', dependencies: [], requires: 'homebrew' },
+      ]
+    })).to.be.false;
+  });
+
 })
