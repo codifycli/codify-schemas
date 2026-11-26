@@ -317,6 +317,12 @@ export interface ResourceDefinition {
    * importing the same state twice. It can still be imported, planned and destroyed directly.
    */
   supersededBy?: string;
+  /**
+   * Types of resources that must exist for this resource to work (ex: `homebrew`, `xcode-tools` on macOS). Unlike
+   * `dependencies`, which only orders resources that are in the config, the CLI adds a default config for every
+   * required type that is missing. Plugins built before this field existed don't send it.
+   */
+  requires?: string[];
 }
 
 export interface InitializeRequestData {

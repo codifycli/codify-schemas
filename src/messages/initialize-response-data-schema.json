@@ -40,6 +40,13 @@
               "type": "string"
             }
           },
+          "requires": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Types of resources that must exist for this resource to work (ex: homebrew, xcode-tools on macOS). The CLI adds a default config for every required type that is missing from the config. Plugins built before this field existed don't send it."
+          },
           "supersededBy": {
             "type": "string",
             "description": "The type of another resource that manages the same system state as this one (ex: alias is superseded by aliases). This resource is skipped when both are imported automatically (init / import all)."
